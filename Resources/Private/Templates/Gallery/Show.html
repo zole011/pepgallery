@@ -1,0 +1,6 @@
+<h2>{gallery.title}</h2>
+<p>{gallery.description}</p>
+<f:for each="{images}" as="image">
+  <f:image image="{image.file}" width="300" />
+  <span>{image.title}</span>
+</f:for>

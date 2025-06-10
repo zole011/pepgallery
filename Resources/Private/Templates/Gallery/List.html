@@ -1,0 +1,7 @@
+<f:for each="{galleries}" as="gallery">
+  <f:link.action action="show" arguments="{gallery: gallery}">
+    <f:image image="{gallery.mainAsset}" width="200" />
+    <span>{gallery.title}</span>
+  </f:link.action>
+  <p>{gallery.description}</p>
+</f:for>
