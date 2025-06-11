@@ -12,6 +12,11 @@ class Gallery extends AbstractEntity
     protected ?FileReference $mainAsset = null;
     protected string $folder = '';
 
+        // Dodajte ova polja
+    protected int $crdate = 0;
+    protected int $tstamp = 0;
+
+
     /**
      * @var ObjectStorage<Image>
      */
@@ -68,5 +73,24 @@ class Gallery extends AbstractEntity
     public function setFolder(string $folder): void
     {
         $this->folder = $folder;
+    }
+    // Dodajte getters za date polja
+    public function getCrdate(): int
+    {
+        return $this->crdate;
+    }
+    
+    public function getTstamp(): int
+    {
+        return $this->tstamp;
+    }
+public function setCrdate(int $crdate): void
+    {
+        $this->crdate = $crdate;
+    }
+    
+    public function setTstamp(int $tstamp): void
+    {
+        $this->tstamp = $tstamp;
     }
 }

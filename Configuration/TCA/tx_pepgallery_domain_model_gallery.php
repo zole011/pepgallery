@@ -29,6 +29,11 @@ return [
                 'eval' => 'trim',
             ],
         ],
+                'crdate' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
         'main_asset' => [
             'label' => 'Thumbnail',
             'config' => [

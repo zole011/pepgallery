@@ -1,7 +1,32 @@
 <f:for each="{galleries}" as="gallery">
-  <f:link.action action="show" arguments="{gallery: gallery}">
-    <f:image image="{gallery.mainAsset}" width="200" />
-    <span>{gallery.title}</span>
-  </f:link.action>
-  <p>{gallery.description}</p>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gallery_list">
+    <f:if condition="{gallery.description}">
+      <f:then>
+        <f:variable name="popover" value="{placement: 'bottom', toggle: 'popover', trigger: 'hover', content: '{gallery.description}'}" />
+      </f:then>
+      <f:else>
+        <f:variable name="popover" value='{}' />
+      </f:else>
+    </f:if>
+    <f:link.action class="d-inline-block gallery_list_thumb" action="show" arguments="{gallery: gallery}" data="{popover}">
+      <f:if condition="{gallery.mainAsset}">
+        <f:then>
+          <f:image image="{gallery.mainAsset}" alt="Gallery Image" width="200" height="200c" style="float:left;"/>
+        </f:then>
+        <f:else>
+          <f:image src="EXT:ce_gallery/Resources/Public/folder.svg" alt="Placeholder Image" width="200" />
+        </f:else>
+      </f:if>
+      <div class="img-details" data-link="{gallery.uid}">
+        <f:if condition="{gallery.title}">
+          <span class="title">
+            {gallery.title}
+          </span>
+          <span class="data">
+            <f:format.date format="%d. %B %Y">{gallery.crdate}</f:format.date>
+          </span>
+        </f:if>
+      </div>
+    </f:link.action>
+  </div>
 </f:for>

@@ -4,15 +4,33 @@
     <f:if condition="{images}">
         <f:then>
             <div class="gallery-images">
-                <f:for each="{images}" as="image">
-                    <div class="gallery-item">
-                        <!-- Koristi image parameter za File objekat -->
-                        <f:image 
-                            image="{image}" 
-                            alt="{image.name}"
-                            width="300"
-                            height="200" 
-                        />
+                <f:for each="{images}" as="image" iteration="index">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 galleries_files">
+                        <div class="gallery-img">
+                            <f:variable name="altText">
+                                {image.metaData.alternative -> f:if(condition: image.metaData.alternative, then: image.metaData.alternative, else: image.name)}
+                            </f:variable>
+                            <f:variable name="imageTitle">
+                                {image.metaData.title -> f:if(condition: image.metaData.title, then: image.metaData.title, else: image.name)}
+                            </f:variable>
+
+                            <a href="{f:uri.image(image: image, maxWidth: 1200, maxHeight: 800)}" rel="lightbox[gallery_{index.cycle}]"
+                               data-gallery="gallery_{index.cycle}" disable-external-check="true" class="d-block mb-4 h-100"
+                               title="{image.metaData.description}"
+                               data-size="1200x800">
+                                <f:image class="img-fluid img-thumbnail" image="{image}" width="256c" height="256c" alt="{altText}" title="{imageTitle}" />
+                                <div class="img-details hover-effect">
+                                    <f:if condition="{image.metaData.description}">
+                                        <f:then>
+                                            <h2>{image.metaData.description}</h2>
+                                        </f:then>
+                                        <f:else>
+                                            <h2>{imageTitle}</h2>
+                                        </f:else>
+                                    </f:if>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </f:for>
             </div>
