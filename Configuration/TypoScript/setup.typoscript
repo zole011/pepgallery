@@ -1,0 +1,20 @@
+plugin.tx_pepgallery_gallery {
+  view {
+    templateRootPaths.0 = EXT:pepgallery/Resources/Private/Templates/
+    partialRootPaths.0 = EXT:pepgallery/Resources/Private/Partials/
+    layoutRootPaths.0 = EXT:pepgallery/Resources/Private/Layouts/
+  }
+  features {
+    skipDefaultArguments = 1
+  }
+  mvc {
+    callDefaultActionIfActionCantBeResolved = 1
+  }
+}
+tt_content.list.20.pepgallery_gallery = USER
+tt_content.list.20.pepgallery_gallery {
+  userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+  extensionName = Pepgallery
+  pluginName = Gallery
+  vendorName = Gmbit
+}

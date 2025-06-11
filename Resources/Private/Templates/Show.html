@@ -1,0 +1,24 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{images}">
+        <f:then>
+            <div class="gallery-images">
+                <f:for each="{images}" as="image">
+                    <div class="gallery-item">
+                        <!-- Koristi image parameter za File objekat -->
+                        <f:image 
+                            image="{image}" 
+                            alt="{image.name}"
+                            width="300"
+                            height="200" 
+                        />
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <p>No images found in this gallery.</p>
+        </f:else>
+    </f:if>
+</f:section>

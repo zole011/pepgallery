@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Gmbit\Pepgallery\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  Gmbit\Pepgallery\Controller\:
+    resource: '../Classes/Controller/*'
+    tags: ['controller.service_arguments']

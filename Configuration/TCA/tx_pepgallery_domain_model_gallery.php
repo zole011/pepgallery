@@ -49,18 +49,13 @@ return [
         'folder' => [
             'label' => 'Gallery Folder',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
-                'fieldControl' => [
-                    'linkPopup' => [
-                        'options' => [
-                            'blindLinkOptions' => 'page,url,mail,telephone,spec,file',
-                            'allowedExtensions' => 'jpg,jpeg,png,gif,webp',
-                        ],
-                    ],
-                ],
-                'softref' => 'typolink',
-                'eval' => 'trim,required',
+                'type' => 'group',
+                'internal_type' => 'folder',
+                'allowed' => '',
+                'size' => 1,
+                'maxitems' => 1,
+                'minitems' => 0,
+                'show_thumbs' => 1,
             ],
         ],
         'hidden' => [
